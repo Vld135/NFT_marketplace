@@ -2,39 +2,38 @@
 
 # dependencies
 /*/node_modules
-/Frontend/.pnp
-/Frontend/*.pnp.js
-/Frontend/*.yarn/install-state.gz
+/NextJs/.pnp
+/NextJs/*.pnp.js
+/NextJs/*.yarn/install-state.gz
 
 # testing
 /*/coverage
 /*/coverage.json
 
 # next.js
-/Frontend/.next/
-/Frontend/out/
+/NextJs/.next/
+/NextJs/out/
 
 # production
-/Frontend/build
+/NextJs/build
 
 # misc
-/Frontend/*.DS_Store
-/Frontend*.pem
+/NextJs/*.DS_Store
+/NextJs*.pem
 
 # debug
-/Frontend/npm-debug.log*
-/Frontend/yarn-debug.log*
-/Frontend/yarn-error.log*
+/NextJs/npm-debug.log*
+/NextJs/yarn-debug.log*
+/NextJs/yarn-error.log*
 
 # local env files
-/Frontend/.env*.local
+/NextJs/.env*.local
 
 # vercel
-/Frontend/*.vercel
+/NextJs/*.vercel
 
 # typescript
-/Frontend/*.tsbuildinfo
-/Frontend/next-env.d.ts
+/NextJs/*.tsbuildinfo
 
 
 

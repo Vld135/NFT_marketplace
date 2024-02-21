@@ -26,9 +26,6 @@
 /NextJs/yarn-debug.log*
 /NextJs/yarn-error.log*
 
-# local env files
-/NextJs/.env*.local
-
 # vercel
 /NextJs/*.vercel
 
@@ -44,3 +41,5 @@
 # TypeChain files
 /Contracts/typechain
 /Contracts/typechain-types
+
+/**/.env.local

@@ -32,6 +32,7 @@
 # typescript
 /NextJs/*.tsbuildinfo
 
+/NextJs/.env.local
 
 
 # Hardhat files
@@ -42,4 +43,3 @@
 /Contracts/typechain
 /Contracts/typechain-types
 
-/**/.env.local

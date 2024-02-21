@@ -1,4 +1,4 @@
-import { AuthorizedHeader } from "@/components/Headers";
+import { UnauthorizedHeader } from "@/components/Headers";
 
 export default function RootLayout({
   children,
@@ -6,9 +6,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <AuthorizedHeader />
+    <div className="bg-white">
+      <UnauthorizedHeader />
       {children}
-    </>
+    </div>
   );
 }

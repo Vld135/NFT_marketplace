@@ -1,29 +1,29 @@
-"use client"
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+"use client";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { signout } from "@/actions/(authorized)/signout";
 
 const navigation = [
-  { name: 'Dashboard', href: '/dashboard' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Calendar', href: '/calendar' },
-]
+  { name: "Dashboard", href: "/dashboard" },
+  { name: "Projects", href: "/projects" },
+  { name: "Calendar", href: "/calendar" },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-const Header = () => {
-    const pathname = usePathname();
-    
+const AuthorizedHeader = () => {
+  const pathname = usePathname();
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -39,11 +39,13 @@ const Header = () => {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
+                  <Link href="/">
+                    <img
+                      className="h-8 w-auto"
+                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      alt="Your Company"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -52,10 +54,12 @@ const Header = () => {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.href === pathname ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.href === pathname
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "rounded-md px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </Link>
@@ -96,36 +100,33 @@ const Header = () => {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/profile"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Your Profile
-                          </Link>
+                      <Link
+                        href="/profile"
+                        className={classNames(
+                          false ? "bg-gray-100" : "",
+                          "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/settings"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </Link>
+                      >
+                        Your Profile
+                      </Link>
+                      <Link
+                        href="/settings/general"
+                        className={classNames(
+                          false ? "bg-gray-100" : "",
+                          "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="signout"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </Link>
+                      >
+                        Settings
+                      </Link>
+                      <button
+                        onClick={() => signout()}
+                        className={classNames(
+                          false ? "bg-gray-100" : "",
+                          "block px-4 py-2 text-sm text-gray-700 w-full text-left hover:bg-gray-100"
                         )}
-                      </Menu.Item>
+                      >
+                        Sign out
+                      </button>
                     </Menu.Items>
                   </Transition>
                 </Menu>
@@ -140,8 +141,10 @@ const Header = () => {
                   key={item.name}
                   href={item.href}
                   className={classNames(
-                    item.href === pathname ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
+                    item.href === pathname
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                 >
                   {item.name}
@@ -152,7 +155,7 @@ const Header = () => {
         </>
       )}
     </Disclosure>
-  )
-}
+  );
+};
 
-export default Header;
+export default AuthorizedHeader;

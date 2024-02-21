@@ -1,7 +1,5 @@
-
 const Projects = () => {
-
-    return <>Projects</>
-}
+  return <>Projects</>;
+};
 
 export default Projects;

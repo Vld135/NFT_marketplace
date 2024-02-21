@@ -1,10 +1,10 @@
 import LoginForm from "@/components/Forms/LoginForm";
-import Link from 'next/link'
- 
+import Link from "next/link";
+
 const Signin = () => {
-    return (
-      <>
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+  return (
+    <>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
@@ -20,16 +20,18 @@ const Signin = () => {
           <LoginForm />
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            <Link href="/registration" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+            Not a member?{" "}
+            <Link
+              href="/registration"
+              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >
               Free registration
             </Link>
           </p>
         </div>
       </div>
-      </>
-    );
-  };
-  
-  export default Signin;
-  
+    </>
+  );
+};
+
+export default Signin;

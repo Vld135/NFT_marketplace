@@ -1,7 +1,5 @@
-
 const Calendar = () => {
-
-    return <>Calendar</>
-}
+  return <>Calendar</>;
+};
 
 export default Calendar;
